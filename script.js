@@ -4,12 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleSwitch = document.getElementById("toggleSwitch");
 
   function fetchPhotos() {
-    // Clear the existing content of the photo container
     photoContainer.innerHTML = "";
+    let promises = [];
 
-    // Fetch 4 random photos from the API
     for (let i = 0; i < 4; i++) {
-      fetch("https://picsum.photos/375/375")
+      let promise = fetch("https://picsum.photos/367/367")
         .then((response) => {
           if (response.ok) {
             return response.url;
@@ -18,20 +17,20 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         })
         .then((photoUrl) => {
-          // Create an image element
           const img = document.createElement("img");
           img.src = photoUrl;
           img.alt = "Random Photo";
-
-          // Append the image to the container
           photoContainer.appendChild(img);
         })
         .catch((error) => console.error(error));
+
+      promises.push(promise);
     }
+
+    return Promise.all(promises);
   }
 
   function applyGrayscale() {
-    // Apply grayscale class to all images if the toggle switch is enabled
     const images = photoContainer.querySelectorAll("img");
     images.forEach((img) => {
       if (toggleSwitch.checked) {
@@ -42,17 +41,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Initial load of photos
   fetchPhotos();
 
-  // Load more photos when the button is clicked
   loadMoreBtn.addEventListener("click", function () {
-    fetchPhotos();
-    applyGrayscale(); // Apply grayscale after fetching new photos
+    fetchPhotos().then(() => {
+      applyGrayscale();
+    });
   });
 
-  // Apply grayscale effect when the switch is changed
   toggleSwitch.addEventListener("change", function () {
     applyGrayscale();
   });
 });
+
