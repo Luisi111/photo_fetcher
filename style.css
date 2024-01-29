@@ -18,21 +18,21 @@ html {
 
 .main-container {
   max-width: 1200px;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25.6px;
+  grid-template-columns: repeat(2,1fr);
+  gap: 16px;
   position: absolute;
-  margin-bottom: 25.6px;
+  margin-bottom: 16px;
 }
 
 .main-container p {
-  font-size: 36.8px;
+  font-size: 35px;
 }
 
 
 .photo-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap:25.6px;
+  grid-template-columns: repeat(2,1fr);
+  gap:16px;
 }
 
 .photo-container img {
@@ -43,7 +43,7 @@ html {
 .controls {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 25.6px;
+  margin-bottom: 16px;
 }
 
 .checkbox-conatiner {
@@ -71,11 +71,11 @@ html {
 #toggleSwitch::before {
   content: " ";
   position: absolute;
-  width: 25.6px;
-  height: 25.6px;
-  border-radius: 32px;
+  width: 25px;
+  height: 25px;
+  border-radius: 26.5px;
   top: 4px;
-  left:35.2px;
+  left:35px;
   background: #fff;
   transform: scale(1.1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
@@ -83,16 +83,16 @@ html {
 }
 
 #toggleSwitch:checked:before {
-  left: 21px;
+  left: 4px;
 }
 
 #loadMoreBtn {
-  padding: 16px 32px;
+  padding: 16px 25px;
   background: none;
   border: 1px solid #6b4bd4;
   border-radius: 8px;
   color: #fff;
-  font-size: 25.6px;
+  font-size: 16px;
   background-color: #6b4bd4;
   transition: all 0.5s;
 }
@@ -104,7 +104,7 @@ html {
 }
 
 label {
-  font-size: 25.6px;
+  font-size: 16px;
   margin-left: 3.2px;
 }
 
